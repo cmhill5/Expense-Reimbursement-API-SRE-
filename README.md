@@ -41,6 +41,25 @@ The Employee Reimbursement System (ERS) is a REST API that helps manage the proc
 8. View Prometheus at "\<EC2 Public DNS\>:9090/"
 9. View Grafana at "\<EC2 Public DNS\>:8000/"
 ## Usage
-On Postman, use this address "\<EC2 Public DNS\>:7465/" allong with these 
+On Postman, use this address "\<EC2 Public DNS\>:7465/" allong with these http requests:
+GET:
+- "/" greetings page
+- "/metrics" metrics
+- "/Employee/{username}" get employee by username
+- "/Employee/id/{id}" get employee by id
+- "/Employees" get all employees
+- "/Employee/{username}/requests" get employee's pending requests
+- "/Employee/{username}/logs" get employee's past requests
+- "/FinManager/{username}" get manager by username
+- "/FinManager/id/{id}" get manager by id
+- "/FinManagers" get all managers
+- "/requests" get all pending requests
+- "/logs" get all past requests
+- "/logs/{isAccepted}" get all past requests based on acceptance (True/False)
+POST:
+- "/Employee/login" employee login; body variables: "username", "password"
+- "/FinManager/login" manager login; body variables: "username", "password"
+- "/Request/{username}/{category}/{balance}" submit request (employee username, category{LODGING, TRAVEL, FOOD, OTHER}, balance to reimburse)
+- "/FinManager/{username}/{id}/{isAccepted}" approve/deny request (manager username, request id, (True/False))
 ## License
   This project uses the following license:
